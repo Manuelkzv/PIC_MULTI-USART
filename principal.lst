@@ -1,0 +1,189 @@
+CCS PCH C Compiler, Version 5.015, 5967               26-feb.-19 12:00
+
+               Filename:   D:\respaldo_manuel\ITSA\2019_primavera\Interfaces_y_redes\mult-serial\principal.lst
+
+               ROM used:   286 bytes (1%)
+                           Largest free fragment is 32482
+               RAM used:   5 (0%) at main() level
+                           8 (0%) worst case
+               Stack used: 2 locations
+               Stack size: 31
+
+*
+0000:  GOTO   00CC
+.................... #include <18F4550.h> 
+.................... //////////// Standard Header file for the PIC18F4550 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC18F4550 
+0004:  DATA 55,41
+0006:  DATA 52,54
+0008:  DATA 20,52
+000A:  DATA 53,32
+000C:  DATA 33,32
+000E:  DATA 20,55
+0010:  DATA 41,52
+0012:  DATA 54,5F
+0014:  DATA 52,38
+0016:  DATA 41,0A
+0018:  DATA 0D,00
+001A:  DATA 55,41
+001C:  DATA 52,54
+001E:  DATA 20,52
+0020:  DATA 53,32
+0022:  DATA 33,32
+0024:  DATA 20,55
+0026:  DATA 41,52
+0028:  DATA 54,5F
+002A:  DATA 52,38
+002C:  DATA 42,0A
+002E:  DATA 0D,00
+0030:  DATA 46,75
+0032:  DATA 6E,63
+0034:  DATA 69,6F
+0036:  DATA 6E,61
+0038:  DATA 20,65
+003A:  DATA 6C,20
+003C:  DATA 73,65
+003E:  DATA 72,69
+0040:  DATA 61,6C
+0042:  DATA 0A,0D
+0044:  DATA 00,00
+0046:  TBLRD*+
+0048:  MOVF   FF5,F
+004A:  BZ    0066
+004C:  MOVFF  FF6,05
+0050:  MOVFF  FF7,06
+0054:  MOVF   FF5,W
+0056:  BTFSS  F9E.4
+0058:  BRA    0056
+005A:  MOVWF  FAD
+005C:  MOVFF  05,FF6
+0060:  MOVFF  06,FF7
+0064:  BRA    0046
+0066:  GOTO   0100 (RETURN)
+*
+00AC:  TBLRD*+
+00AE:  MOVF   FF5,F
+00B0:  BZ    00CA
+00B2:  MOVFF  FF6,05
+00B6:  MOVFF  FF7,06
+00BA:  MOVFF  FF5,07
+00BE:  BRA    006A
+00C0:  MOVFF  05,FF6
+00C4:  MOVFF  06,FF7
+00C8:  BRA    00AC
+00CA:  RETURN 0
+....................  
+.................... #list 
+....................  
+.................... #fuses HS, NOWDT NOPROTECT 
+.................... #use delay(internal=8Mhz) 
+.................... #use rs232(baud=9600, xmit=PIN_C6,rcv=PIN_C7, STREAM=R8A ) 
+.................... #use rs232(baud=9600, xmit=PIN_C0,rcv=PIN_C1, STREAM=R8B ) 
+*
+006A:  BCF    F94.0
+006C:  BCF    F8B.0
+006E:  MOVLW  08
+0070:  MOVWF  01
+0072:  BRA    0074
+0074:  NOP   
+0076:  BSF    01.7
+0078:  BRA    0096
+007A:  BCF    01.7
+007C:  RRCF   07,F
+007E:  BTFSC  FD8.0
+0080:  BSF    F8B.0
+0082:  BTFSS  FD8.0
+0084:  BCF    F8B.0
+0086:  BSF    01.6
+0088:  BRA    0096
+008A:  BCF    01.6
+008C:  DECFSZ 01,F
+008E:  BRA    007C
+0090:  BRA    0092
+0092:  NOP   
+0094:  BSF    F8B.0
+0096:  MOVLW  3F
+0098:  MOVWF  FE9
+009A:  DECFSZ FE9,F
+009C:  BRA    009A
+009E:  NOP   
+00A0:  BTFSC  01.7
+00A2:  BRA    007A
+00A4:  BTFSC  01.6
+00A6:  BRA    008A
+00A8:  GOTO   00C0 (RETURN)
+....................  
+.................... char i = 0; 
+....................  
+.................... void main() 
+*
+00CC:  CLRF   FF8
+00CE:  BCF    FD0.7
+00D0:  MOVLW  70
+00D2:  MOVWF  FD3
+00D4:  MOVF   FD3,W
+00D6:  BCF    FB8.3
+00D8:  MOVLW  0C
+00DA:  MOVWF  FAF
+00DC:  MOVLW  A2
+00DE:  MOVWF  FAC
+00E0:  MOVLW  90
+00E2:  MOVWF  FAB
+00E4:  BCF    F94.0
+00E6:  BSF    F8B.0
+00E8:  CLRF   04
+00EA:  MOVF   FC1,W
+00EC:  ANDLW  C0
+00EE:  IORLW  0F
+00F0:  MOVWF  FC1
+00F2:  MOVLW  07
+00F4:  MOVWF  FB4
+.................... { 
+....................    while(1) 
+....................    { 
+....................       fprintf(R8A, "UART RS232 UART_R8A\n\r"); 
+00F6:  MOVLW  04
+00F8:  MOVWF  FF6
+00FA:  MOVLW  00
+00FC:  MOVWF  FF7
+00FE:  BRA    0046
+....................       fprintf(R8B, "UART RS232 UART_R8B\n\r"); 
+0100:  MOVLW  1A
+0102:  MOVWF  FF6
+0104:  MOVLW  00
+0106:  MOVWF  FF7
+0108:  RCALL  00AC
+....................       printf("Funciona el serial\n\r"); 
+010A:  MOVLW  30
+010C:  MOVWF  FF6
+010E:  MOVLW  00
+0110:  MOVWF  FF7
+0112:  RCALL  00AC
+....................       getch(); 
+0114:  BTFSS  F9E.5
+0116:  BRA    0114
+0118:  MOVF   FAE,W
+011A:  BRA    00F6
+....................    } 
+.................... } 
+....................  
+011C:  SLEEP 
+....................  
+
+Configuration Fuses:
+   Word  1: C83F   PLL12 CPUDIV4 USBDIV INTRC_IO FCMEN IESO
+   Word  2: 1E3E   PUT BROWNOUT BORV21 VREGEN NOWDT WDT32768
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

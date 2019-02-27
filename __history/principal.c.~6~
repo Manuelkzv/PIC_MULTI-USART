@@ -1,0 +1,17 @@
+#include <18F4550.h>
+#fuses HS, NOWDT NOPROTECT
+#use delay(internal=8Mhz)
+#use rs232(baud=9600, xmit=PIN_C6,rcv=PIN_C7, STREAM=R8A )
+
+char i = 0;
+
+void main()
+{
+   while(1)
+   {
+      fprintf(R8A, "UART RS323 \n");
+      printf("Funciona el serial\n"); 
+   }
+}
+
+

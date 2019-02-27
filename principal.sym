@@ -1,0 +1,71 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     i
+005     @PSTRINGC_9600_31766_31767.@SCRATCH1
+005     @PSTRINGC_650.@SCRATCH1
+006     @PSTRINGC_9600_31766_31767.@SCRATCH2
+006     @PSTRINGC_650.@SCRATCH2
+007     @PUTCHAR_2_.P1
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P1
+FE9-FEA @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P3
+FE9-FEA @WRITE_PROGRAM_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @const657.call
+00001A  @const659.call
+000030  @const661.call
+000046  @PSTRINGC_9600_31766_31767
+00006A  @PUTCHAR_2_
+0000AC  @PSTRINGC_650
+0000CC  main
+0000CC  @cinit1
+0000F6  @cinit2
+
+Project Directory:
+    D:\respaldo_manuel\ITSA\2019_primavera\Interfaces_y_redes\mult-serial\
+
+Project Files:
+    principal.c                                             [26-feb.-19 12:00  CRC=03D0CCDC]
+    E:\Program Files (x86)\PICC\Devices\18F4550.h           [12-nov.-13 13:35  CRC=5337E248]
+
+Source signature=AA40916C
+
+Units:
+    principal (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   principal.xsym
+    Errors:      principal.err
+    Ext Symbols: principal.esym
+    INHX32:      principal.hex
+    Symbols:     principal.sym
+    List:        principal.lst
+    Debug/COFF:  principal.cof
+    Project:     principal.ccspjt
+    Call Tree:   principal.tre
+    Statistics:  principal.STA

@@ -1,0 +1,16 @@
+#include <18F4550.h>
+#fuses HS, NOWDT NPROTECT
+#use delay(internal=8Mhz)
+#use rs232(baud=9600, xmit=PIN_C6,rcv=PIN_C7 )
+
+char i = 0;
+
+void main()
+{
+   while(1)
+   {
+      printf("Funciona el serial"); 
+   }
+}
+
+

@@ -1,0 +1,8 @@
+юдprincipal
+   юдmain  0/82  Ram=0
+      цд@cinit1  (Inline)  Ram=0
+      цд@PSTRINGC_9600_31766_31767  0/36  Ram=2
+      цд@PSTRINGC_650  0/32  Ram=2
+      Ё  юд@PUTCHAR_2_  0/66  Ram=1
+      юд@PSTRINGC_650  0/32  Ram=2
+         юд*

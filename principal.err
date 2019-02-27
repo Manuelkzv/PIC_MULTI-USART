@@ -1,0 +1,5 @@
+>>> Warning 203 "principal.c" Line 11(1,1): Condition always TRUE
+>>> Warning 202 "principal.c" Line 7(6,7): Variable never used:   i
+      Memory usage:   ROM=1%      RAM=0% - 0%
+      0 Errors,  2 Warnings.
+Build Successful.
